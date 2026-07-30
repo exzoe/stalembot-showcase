@@ -19,6 +19,20 @@ STALEM is a Telegram service that monitors game events across regional servers,
 shows current status, and sends personalized notifications. The production bot
 is used by **200+ players**.
 
+The production system includes multi-region monitoring, user-specific settings
+and time zones, event history, global and personal statistics, last-known-good
+fallback, duplicate-notification protection, and administrative background
+operations.
+
+The current production version also includes:
+
+- per-event readiness tracking with duplicate-action protection;
+- personal streaks and readiness percentage;
+- Telegram inline sharing for forecasts and active events;
+- personal referral links and first-time-user attribution;
+- audience activity analytics for multiple time ranges;
+- safe SQLite migrations and automated checks before changes are merged.
+
 - Telegram: [@stalembot](https://t.me/stalembot)
 - Developer: [@exzoe](https://github.com/exzoe)
 
@@ -48,7 +62,8 @@ python scripts/check.py
 
 - production API URL, authentication, and response schema;
 - forecasting formulas and timing parameters;
-- production SQLite schema and migrations;
+- production SQLite schema, migrations, and personal analytics;
+- inline-sharing and referral implementation;
 - administrative broadcast queue;
 - user data, logs, backups, and VPS configuration;
 - working tokens or credentials.
@@ -58,7 +73,7 @@ appropriate.
 
 ## Production stack
 
-`Python` · `aiogram 3` · `asyncio` · `aiohttp` · `SQLite/WAL` · `pytest` · `systemd`
+`Python` · `aiogram 3` · `asyncio` · `aiohttp` · `SQLite/WAL` · `pytest` · `GitHub Actions` · `systemd`
 
 STALEM is an unofficial third-party service. All names and trademarks belong to
 their respective owners.
